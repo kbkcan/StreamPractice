@@ -28,7 +28,12 @@ public class User {
     }
 
     private ArrayList<String> makeHobbyList(String hobbyString) {
+        ArrayList<String> hobbyList = new ArrayList<>();
+        System.out.println("hobbyString = " + hobbyString);;
         String hobbyArray[] = hobbyString.split(":");
-        return (ArrayList<String>)Arrays.asList(hobbyArray);
+        for (String hobby: hobbyArray){
+            hobbyList.add(hobby.trim());
+        }
+        return hobbyList;
     }
 }

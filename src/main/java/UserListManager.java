@@ -11,10 +11,17 @@ public class UserListManager {
     }
 
     public HashMap<String,MutableInt> hobbyKeyNumberValue() {
-        HashMap<String, ArrayList<User>> hobbyUserMap = new HashMap<>();
         HashMap<String, MutableInt> hobbyNumberMap = new HashMap<>();
         for (User user : userList) {
-
+            ArrayList<String> hobbyList = user.getHobby();
+            for(String hobby:hobbyList){
+                MutableInt count = hobbyNumberMap.get(hobby);
+                if(count == null){
+                    hobbyNumberMap.put(hobby,new MutableInt());
+                }else{
+                    count.increment();
+                }
+            }
         }
         return hobbyNumberMap;
     }
